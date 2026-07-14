@@ -1,0 +1,97 @@
+/*
+ * Styling for rendered Markdown post bodies (NotePage → <div class="post">).
+ * Uses the design tokens from theme.css so posts match the site.
+ */
+
+.post {
+  color: var(--color-body);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.post > * + * {
+  margin-top: 1.5rem;
+}
+
+.post h2 {
+  font-family: var(--font-serif);
+  color: var(--color-ink);
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-top: 2.5rem;
+}
+
+.post h3 {
+  font-family: var(--font-serif);
+  color: var(--color-ink);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+
+.post a {
+  color: var(--color-brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.post strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.post ul,
+.post ol {
+  padding-left: 1.4rem;
+}
+
+.post ul {
+  list-style: disc;
+}
+
+.post ol {
+  list-style: decimal;
+}
+
+.post li + li {
+  margin-top: 0.4rem;
+}
+
+.post blockquote {
+  border-left: 2px solid var(--color-brand);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--color-ink);
+}
+
+/* Inline code */
+.post code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: #f4f4f4;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+/* Fenced code blocks */
+.post pre {
+  background: #f6f8fa;
+  border: 1px solid var(--color-hairline);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+}
+
+.post pre code {
+  background: transparent;
+  padding: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.post img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

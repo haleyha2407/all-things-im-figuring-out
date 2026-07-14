@@ -1,0 +1,56 @@
+/*
+ * Design tokens for "All Things I'm Learning".
+ * Single source of truth for the palette + typography. Consume via Tailwind
+ * utilities (text-ink, bg-leaf, border-hairline, font-serif, …) — never paste
+ * raw hex or font stacks into components.
+ */
+
+@theme {
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Brand */
+  --color-brand: #0D6E73;
+
+  /* Ink / text ramp (dark → light) */
+  --color-ink: #111111;
+  --color-body: #666666;
+  --color-subtle: #999999;
+  --color-faint: #aaaaaa;
+
+  /* Lines */
+  --color-hairline: #e5e5e5;
+
+  /* Hero accents */
+  --color-leaf: #46c07a;      /* primary CTA */
+  --color-leaf-dark: #35a868; /* CTA hover */
+  --color-mist: #d5efa8;      /* display heading */
+  --color-cyan: #0fb3bc;      /* display heading, italic */
+
+  /* Topic tiles */
+  --color-tile-blue: #1e5b8a;
+  --color-tile-teal: #0d6e73;
+  --color-tile-navy: #1c3557;
+}
+
+/* Base document styles. Utility classes still override these. */
+@layer base {
+  body {
+    background: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+  }
+}
