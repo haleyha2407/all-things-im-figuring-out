@@ -24,10 +24,13 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
-      - run: npm ci
+      # Use `npm install`, not `npm ci`: `npm ci` on Linux can't install the
+      # platform-specific Rollup binary from a macOS-generated lockfile
+      # (npm/cli#4828). `npm install` re-resolves optional deps for the runner.
+      - run: npm install --no-audit --no-fund
       - run: npm run typecheck
       - run: npm run build
 
