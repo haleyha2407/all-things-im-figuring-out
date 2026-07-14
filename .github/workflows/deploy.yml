@@ -27,10 +27,12 @@ jobs:
           node-version: 22
           cache: npm
 
-      # Use `npm install`, not `npm ci`: `npm ci` on Linux can't install the
-      # platform-specific Rollup binary from a macOS-generated lockfile
-      # (npm/cli#4828). `npm install` re-resolves optional deps for the runner.
-      - run: npm install --no-audit --no-fund
+      # The committed lockfile is generated on macOS and omits the Linux
+      # native binaries (Rollup, Tailwind oxide, lightningcss) due to
+      # npm/cli#4828 — so both `npm ci` and `npm install` skip them and the
+      # build fails. Removing the lockfile forces a clean, platform-correct
+      # resolution on the runner, which installs the Linux binaries.
+      - run: rm -f package-lock.json && npm install --no-audit --no-fund
       - run: npm run typecheck
       - run: npm run build
 
